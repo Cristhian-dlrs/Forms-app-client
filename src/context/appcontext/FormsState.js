@@ -15,7 +15,7 @@ const FormsState = (props) => {
         answers: [],
         answer: {},
         errors: [],
-        loggedIn: false,
+        logedIn: false,
         loading: false,
     };
 
@@ -34,7 +34,7 @@ const FormsState = (props) => {
             .catch((err) => {
                 dispatch({
                     type: ERROR,
-                    payload: err.data.erros,
+                    payload: err.response,
                 });
             });
     };
@@ -45,7 +45,7 @@ const FormsState = (props) => {
             .catch((err) => {
                 dispatch({
                     type: ERROR,
-                    payload: err.data.erros,
+                    payload: err.response,
                 });
             });
     };
@@ -59,7 +59,7 @@ const FormsState = (props) => {
     //Answers
 
     return (
-        <FormsState.Provider
+        <FormsContext.Provider
             value={{
                 user: state.user,
                 forms: state.forms,
@@ -69,12 +69,14 @@ const FormsState = (props) => {
                 respondanted: state.respondant,
                 answers: state.answers,
                 answer: state.answer,
+                erros: state.erros,
+                logedIn: state.logedIn,
                 login,
                 register,
             }}
         >
             {props.children}
-        </FormsState.Provider>
+        </FormsContext.Provider>
     );
 };
 

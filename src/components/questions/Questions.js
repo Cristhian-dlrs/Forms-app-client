@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react';
+import React, { useState } from 'react';
 import QuestionItem from './QuestionItem';
 
 const Questions = () => {
@@ -8,7 +8,7 @@ const Questions = () => {
     const deactivate = () => setIsActive(false);
 
     return (
-        <Fragment>
+        <div className='main'>
             <div
                 onFocus={activate}
                 onBlur={deactivate}
@@ -30,7 +30,7 @@ const Questions = () => {
                 <QuestionItem />
                 <QuestionItem />
             </div>
-        </Fragment>
+        </div>
     );
 };
 

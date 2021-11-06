@@ -1,9 +1,14 @@
-import React, { Fragment } from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import ApplyQuestionItem from '../questions/ApplyQuestionItem';
+import NavigationContext from '../../context/navigation/navigationContext';
 
 const Apply = () => {
+    const naviagtionContext = useContext(NavigationContext);
+    const { setCurrentPage } = naviagtionContext;
+    const goToQuestions = () => setCurrentPage('AT_QUESTIONS');
     return (
-        <Fragment>
+        <div className='main'>
             <div class='respondant-info'>
                 <input class='respondant-name' type='text' placeholder='Name' />
             </div>
@@ -11,8 +16,10 @@ const Apply = () => {
                 <ApplyQuestionItem value={'Answer...'} isActiveAnswer={true} />
                 <ApplyQuestionItem isActiveAnswer={false} />
             </div>
-            <button class='apply-button-save'>Save Answers</button>
-        </Fragment>
+            <Link onClick={goToQuestions} to='/questions'>
+                <button class='apply-button-save'>Save Answers</button>
+            </Link>
+        </div>
     );
 };
 

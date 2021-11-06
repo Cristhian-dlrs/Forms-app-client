@@ -18,6 +18,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .display-none {
     display: none;
 }
@@ -32,6 +36,7 @@
     align-items: center;
     padding: 20px 50px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
 .header-logo {
@@ -66,6 +71,18 @@
     color: #eb4338;
 }
 
+.addBtn {
+    font-size: 33px;
+    background-color: #ffff;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+}
+
+.addBtn:hover {
+    color: var(--primary-color-ligth);
+}
+
 .header-form-name {
     margin-left: 15px;
     font-size: 22px;
@@ -76,9 +93,9 @@
 .navigation {
     display: flex;
     color: var(--text-default-color);
-    position: relative;
-    top: 32px;
-    right: 1%;
+    position: absolute;
+    top: 64%;
+    right: 43%;
 }
 
 h3 {
@@ -97,11 +114,12 @@ h3 {
     align-items: center;
 }
 
-.navigation-answers h3 {
+.navigation-current h3 {
     color: var(--primary-color);
 }
 
 .navigation .underline {
+    margin: 0 auto;
     height: 4px;
     width: 80%;
     background-color: var(--primary-color);
@@ -146,6 +164,21 @@ h3 {
 
 .header-search .search-button i {
     padding: 12px;
+}
+
+.header .button-save {
+    font-size: 22px;
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 12px 35px;
+    background-color: var(--primary-color);
+    color: #ffff;
+    border: none;
+    font-size: 18px;
+}
+
+.header .button-save:hover {
+    background-color: var(--primary-color-ligth);
 }
 
 /* Main */
@@ -496,17 +529,12 @@ h3 {
 .form-control small {
     color: var(--error-color);
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: -10%;
+    left: 35%;
     visibility: hidden;
 }
-
-.form-control span {
-    color: var(--error-color);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    visibility: hidden;
+.form-control .show {
+    visibility: visible;
 }
 
 .form-control.error small {

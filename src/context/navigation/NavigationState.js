@@ -4,9 +4,7 @@ import NavigationContext from './navigationContext';
 import { SET_PAGE } from '../types';
 
 const NavigationState = (props) => {
-    const initialState = {
-        currentPage: 'at_home',
-    };
+    const initialState = 'AT_LOGIN';
 
     const [state, dispatch] = useReducer(NavigationReducer, initialState);
 
@@ -16,7 +14,7 @@ const NavigationState = (props) => {
     return (
         <NavigationContext.Provider
             value={{
-                currentPage: state.currentPage,
+                currentPage: state,
                 setCurrentPage,
             }}
         >

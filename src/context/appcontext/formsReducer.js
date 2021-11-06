@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_REGISTER } from '../types';
+import { USER_LOGIN, USER_REGISTER, ERROR } from '../types';
 
 export default (state, action) => {
     switch (action.type) {
@@ -6,13 +6,14 @@ export default (state, action) => {
             return {
                 ...state,
                 user: action.payload,
-                loggedIn: action.status,
+                loggedIn: true,
             };
 
         case ERROR:
             return {
                 ...state,
-                errors: payload,
+                errors: action.payload,
+                loggedIn: false,
             };
 
         default:

@@ -1,5 +1,5 @@
 import React from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './components/login/Login';
 import SignUp from './components/login/SignUp';
 import Forms from './components/forms/Forms';
@@ -11,15 +11,26 @@ import Navbar from './components/layout/Navbar';
 import './App.css';
 
 import NavigationState from './context/navigation/NavigationState';
+import AppState from './context/appcontext/FormsState';
 
 function App() {
     return (
-        <NavigationState>
-            <div>
-                <Navbar />
-                <div className='main'></div>
-            </div>
-        </NavigationState>
+        <AppState>
+            <NavigationState>
+                <Router>
+                    <Navbar />
+                    <Route exact path='/' component={Login} />
+                    <Route exact path='/signup' component={SignUp} />
+                    <Switch>
+                        <Route exact path='/forms' component={Forms} />
+                        <Route exact path='/questions' component={Questions} />
+                        <Route exact path='/answers' component={Answers} />
+                        <Route exact path='/apply' component={Apply} />
+                        <Route exact path='/response' component={Response} />
+                    </Switch>
+                </Router>
+            </NavigationState>
+        </AppState>
     );
 }
 
